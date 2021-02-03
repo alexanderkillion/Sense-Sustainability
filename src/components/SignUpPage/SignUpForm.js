@@ -12,63 +12,72 @@ const INITIAL_STATE = {
     passwordTwo: '',
     isAdmin: false,
     error: null,
-};
+}
 
 function SignUpForm({ history }) {
-    const firebase = React.useContext(FirebaseContext);
+    const firebase = React.useContext(FirebaseContext)
 
     const [
         { username, email, passwordOne, passwordTwo, error, isAdmin },
         setSignUpFormState,
     ] = React.useState(INITIAL_STATE);
 
-    const onSubmit = (event) => {
+    const onSubmit = event => {
         const roles = {};
+        console.log(isAdmin)
 
-        if (isAdmin) {
+        if(isAdmin) {
             roles[ROLES.administrator] = ROLES.administrator;
         }
 
         firebase
-            .createUserWithEmailAndPassword(email, passwordOne, roles)
-            .then(async (authUser) => {
-                setSignUpFormState(INITIAL_STATE);
-                history.push(ROUTES.HOME);
+            .createUserWithEmailAndPassword(email, passwordOne)
+            .then(authUser => {
+                console.log('authuser1', authUser)
+                firebase.setCustomUserClaims(authUser.user.uid)
+                
+
                 return firebase.user(authUser.user.uid).set({
                     username,
                     email,
                     roles,
-                });
+                })
             })
-            .then(() => {})
-            .catch((error) =>
-                setSignUpFormState((prev) => ({ ...prev, error: error }))
-            );
+                // setCustomUserClaims(authUser.user.uid)
 
-        event.preventDefault();
-    };
 
-    const onChange = (event) => {
-        const { name, value } = event.target;
-        setSignUpFormState((prev) => ({
+            .then(() => {
+                setSignUpFormState(INITIAL_STATE)
+                history.push(ROUTES.HOME)
+            })
+            .catch(error =>
+                setSignUpFormState(prev => ({ ...prev, error: error }))
+            )
+
+        event.preventDefault()
+    }
+
+    const onChange = event => {
+        const { name, value } = event.target
+        setSignUpFormState(prev => ({
             ...prev,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
-    const onChangeCheckbox = (event) => {
+    const onChangeCheckbox = event => {
         const { name, checked } = event.target;
-        setSignUpFormState((prev) => ({
+        setSignUpFormState(prev => ({
             ...prev,
-            [name]: checked,
+            [name]: checked
         }));
-    };
+    }
 
     const isInvalid =
         passwordOne !== passwordTwo ||
         passwordOne === '' ||
         email === '' ||
-        username === '';
+        username === ''
 
     return (
         <form onSubmit={onSubmit}>
@@ -115,7 +124,7 @@ function SignUpForm({ history }) {
 
             {error && <p>{error.message}</p>}
         </form>
-    );
+    )
 }
 
-export default withRouter(SignUpForm);
+export default withRouter(SignUpForm)

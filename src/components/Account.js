@@ -7,7 +7,7 @@ import { useAuthUser, withAuthorization } from './Session';
 function AccountPage() {
     const authUser = useAuthUser();
 
-    if (!authUser) return <h1>User Unknown</h1>;
+    if (!authUser) return <h1>User Unknown</h1>
 
     return (
         <div>
@@ -15,9 +15,9 @@ function AccountPage() {
             {/* <PasswordForgetForm />
             <PasswordChangeForm /> */}
         </div>
-    );
+    )
 }
 
-const condition = (authUser) => !!authUser;
+const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(AccountPage);

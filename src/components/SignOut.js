@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { FirebaseContext } from '../firebase';
 
 function SignOut() {
@@ -8,7 +8,7 @@ function SignOut() {
         <button type="button" onClick={firebase.signOut}>
             Sign Out
         </button>
-    );
+    )
 }
 
 export default SignOut;

@@ -1,15 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Navigation from './Navigation';
-import Landing from './Landing';
-import SignUpPage from './SignUpPage';
-import SignInPage from './SignInPage';
-import PasswordForget from './PasswordForget';
-import Home from './Home';
-import Account from './Account';
-import Admin from './Admin';
-import * as ROUTES from '../constants/routes';
+import Navigation from './Navigation'
+import Landing from './Landing'
+import SignUpPage from './SignUpPage'
+import SignInPage from './SignInPage'
+import PasswordForget from './PasswordForget'
+import Home from './Home'
+import Account from './Account'
+import Admin from './Admin'
+import * as ROUTES from '../constants/routes'
 
 function App() {
     return (
@@ -31,7 +31,7 @@ function App() {
                 <Route path={ROUTES.ADMIN} component={Admin} />
             </div>
         </Router>
-    );
+    )
 }
 
-export default App;
+export default App
