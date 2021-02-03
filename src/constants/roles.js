@@ -1,0 +1,1 @@
+export const administrator = 'administrator';
