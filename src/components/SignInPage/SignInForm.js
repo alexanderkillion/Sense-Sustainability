@@ -28,33 +28,6 @@ function SignInForm() {
     setSignInFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  // const getCustomUserClaims = (uid) => {
-  //   axios.post('/getMyClaims', {uid})
-  //   .then((res) => {
-  //     console.log(res);
-  //     return res
-  //     // expected response:
-  //     // userRecord (should not receive the entire record.  Destructure in the backend)
-  //     }
-  //   ).then(data => {
-  //     console.log('2nd .then')
-  //     console.log(data.data)
-
-  //     console.log(INITIAL_STATE);
-  //     setSignInFormState({
-  //       email: data.data.email,
-  //       password: "",
-  //       error: null,
-  //       roles: [data.data.customClaims.type]
-  //     });
-
-
-  //       // history.goBack();
-  //       history.push(ROUTES.HOME);
-
-  //   })
-  // }
-
   const onSubmit = event => {
     firebase
       .signInWithEmailAndPassword(email, password)

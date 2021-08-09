@@ -17,11 +17,9 @@ function App() {
             <div>
                 <Navigation />
 
-                <hr />
-
-                <Route exact path={ROUTES.LANDING} component={Landing} />
+                <Route exact path={ROUTES.RESEARCHNEEDS} component={Landing} />
                 <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-                <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+                <Route path={ROUTES.LOGIN} component={SignInPage} />
                 <Route
                     path={ROUTES.PASSWORD_FORGET}
                     component={PasswordForget}

@@ -8,42 +8,65 @@ import { useAuthUser } from './Session'
 
 function NavigationAuth({ authUser }) {
     return (
-        <ul>
-            <li>
-                <Link to={ROUTES.LANDING}>Landing</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.HOME}>Home</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.ACCOUNT}>Account</Link>
-            </li>
-            {
-                !!authUser.roles.includes(ROLES.administrator) && (
-                    <li>
-                        <Link to={ROUTES.ADMIN}>Admin</Link>
-                    </li>
-                )
-            }
-            <li>
-                <SignOut />
-            </li>
-        </ul>
+        <>
+            <ul className='Navbar'>
+                <li>
+                    <Link to={ROUTES.RESEARCHNEEDS}>ResearchNeeds.org</Link>
+                </li>
+                <li>Search Opportunities</li>
+                <li>About Us</li>
+                <li>
+                    <Link to={ROUTES.SIGN_UP}>Create An Account</Link>
+                </li>
+                <li>
+                    <Link to={ROUTES.LOGIN}>Login</Link>
+                </li>
+                <li>icon</li>
+            </ul>
+            <ul>
+                <li>
+                    <Link to={ROUTES.HOME}>Search Opportunities</Link>
+                </li>
+                <li>
+                    <Link to={ROUTES.ACCOUNT}>Account</Link>
+                </li>
+                {
+                    !!authUser.roles.includes(ROLES.administrator) && (
+                        <li>
+                            <Link to={ROUTES.ADMIN}>Admin</Link>
+                        </li>
+                    )
+                }
+                <li>
+                    <SignOut />
+                </li>
+            </ul>
+        </>
     )
 }
 
 const NavigationNonAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-        <li>
-            <SignOut/>
-        </li>
-    </ul>
+    <>
+        <ul className='Navbar'>
+            <li>
+                <Link to={ROUTES.RESEARCHNEEDS}>ResearchNeeds.org</Link>
+            </li>
+            <li>Search Opportunities</li>
+            <li>About Us</li>
+            <li>
+                    <Link to={ROUTES.SIGN_UP}>Create An Account</Link>
+            </li>
+            <li>
+                <Link to={ROUTES.LOGIN}>Login</Link>
+            </li>
+            <li>icon</li>
+        </ul>
+        <ul>
+            <li>
+                <SignOut/>
+            </li>
+        </ul>
+    </>
 )
 
 function Navigation() {

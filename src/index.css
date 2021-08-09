@@ -12,3 +12,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.Navbar {
+  display: flex;
+  height: 10vh;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* .Navbar:hover {
+  background-color: green;
+} */
+
+li {
+  list-style-type: none;
+  margin: auto;
+}
+
+/* li a:hover {
+  background-color: black;
+} */
+
+a {
+  text-decoration: none;
+  height: 100%;
+}
+
+.Landing {
+  background-image: url("https://cariera.co/wp-content/uploads/2020/05/team-work.jpg");
+  height: 80vh;
+  margin: auto;
+}
+
+.LandingForm {
+  margin: auto;
+}

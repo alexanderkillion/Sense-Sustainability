@@ -31,25 +31,21 @@ function SignUpForm({ history }) {
         }
 
         firebase
-            .createUserWithEmailAndPassword(email, passwordOne)
-            .then(authUser => {
+            .createUserWithEmailAndPassword(email, passwordOne, roles)
+            .then(async authUser => {
                 console.log('authuser1', authUser)
-                firebase.setCustomUserClaims(authUser.user.uid)
-                
-
+                setSignUpFormState(INITIAL_STATE)
+                    history.push(ROUTES.HOME)
                 return firebase.user(authUser.user.uid).set({
                     username,
                     email,
                     roles,
                 })
+                
             })
-                // setCustomUserClaims(authUser.user.uid)
-
-
             .then(() => {
-                setSignUpFormState(INITIAL_STATE)
-                history.push(ROUTES.HOME)
-            })
+                    
+                })
             .catch(error =>
                 setSignUpFormState(prev => ({ ...prev, error: error }))
             )
