@@ -14,13 +14,17 @@ class Firebase {
 
     this.db = app.database();
     this.auth = app.auth();
+    this.roles = {};
     // this.userAxios = axios.create();
  
   }
 
   // *** Auth API ***
-  createUserWithEmailAndPassword = (email, password) => 
-    this.auth.createUserWithEmailAndPassword(email, password)
+  createUserWithEmailAndPassword = (email, password, roles) => {
+    this.roles = roles;
+    return this.auth.createUserWithEmailAndPassword(email, password);
+  }
+    
     
 
   signInWithEmailAndPassword = (email, password) =>
@@ -73,6 +77,10 @@ class Firebase {
             // if (!dbUser.roles) {
             //   dbUser.roles = {};
             // }
+            if (this.roles.hasOwnProperty('administrator')) {
+              this.setCustomUserClaims(user.uid);
+            }
+
             
             axios.post('/getMyClaims', {uid: user.uid}).then((res) => {
               console.log(res);
@@ -85,7 +93,7 @@ class Firebase {
               next({
                 uid: user.uid,
                 email: user.email,
-                roles: [data.data.customClaims.type]
+                roles: data.data.customClaims ? [data.data.customClaims.type] : this.roles.administrator ? [this.roles.administrator] : []
   
               });
         

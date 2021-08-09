@@ -16,7 +16,7 @@ function AdminPage() {
         <Route exact path={ROUTES.ADMIN} component={UserList} />
       </Switch>
 
-      {/*  */}
+
 
       {/* <UserList users={users} /> */}
     </div>
