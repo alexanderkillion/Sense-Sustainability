@@ -1,7 +1,11 @@
 import React from 'react';
 
+import JobSection from './JobSection';
+import ReviewSection from './ReviewSection';
+
 function Landing() {
     return (
+        <>
         <div className='Landing'>
             <>
             <p>Find your dream job</p>
@@ -28,6 +32,9 @@ function Landing() {
             <a></a>
             </>
         </div>
+            <JobSection />
+            <ReviewSection />
+        </>
     )
 }
 
