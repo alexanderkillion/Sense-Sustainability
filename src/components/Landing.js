@@ -1,4 +1,5 @@
 import React from 'react';
+import EmployerCanidate from '../components/Employer-Canidate'
 
 function Landing() {
 
@@ -7,34 +8,57 @@ function Landing() {
     const submitHandler = () => {}
 
     return (
-        <div className='Landing'>
-            <div className='darkenImage'>
+        <>
+            <div className='Landing'>
+                <div className='darkenImage'>
 
-            <p>Find your dream job</p>
-            <p>Pick a career that doesn't need escaping from!</p>
-            <form className='LandingForm' onSubmit={submitHandler}>
-                    <input
-                        name=""
-                        value={''}
-                        onChange={onChangeHandler}
-                        type=""
-                        placeholder="Key Words"
-                    />
-                    <input
-                        name=""
-                        value={''}
-                        onChange={onChangeHandler}
-                        type=""
-                        placeholder="Location"
-                    />
-                    <button type="submit">
-                        Search
-                    </button>
-                
-            </form>
-            <a></a>
+                <h1 className='white-font'>Find your dream job</h1>
+                <p className='white-font'>Pick a career that doesn't need escaping from!</p>
+                    <form className='LandingForm' onSubmit={submitHandler}>
+                            <input
+                                className='hero-inputs'
+                                name=""
+                                value={''}
+                                onChange={onChangeHandler}
+                                type="text"
+                                placeholder="Key Words"
+                            />
+                            <input
+                                className='hero-inputs'
+                                name=""
+                                value={''}
+                                onChange={onChangeHandler}
+                                type="text"
+                                placeholder="Location"
+                            />
+                            <select
+                                name=""
+                                value={''}
+                                onChange={onChangeHandler}
+                                defaultValue='Choose a category...'
+                            >
+                                <option>Choose a category...</option>
+                                <option>Agriculture</option>
+                                <option>Education</option>
+                                <option>Forestry</option>
+                                <option>Botany</option>
+                                <option>Climate</option>
+                                <option>Wildlife</option>
+                                <option>Invasive Species</option>
+                                <option>Wildfire</option>
+                                <option>Policy</option>
+                                <option>Social Science</option>
+                            </select>
+                            <button type="submit" className='styledButton'>
+                                Search
+                            </button>
+                        
+                    </form>
+                <a href='' className='white-font underLine'>Advanced Search</a>
+                </div>
             </div>
-        </div>
+            <EmployerCanidate></EmployerCanidate>
+        </>
     )
 }
 
