@@ -1,8 +1,8 @@
 import React from 'react';
 
-function EmployerCanidate() {
+function EmployerCandidate() {
     return (
-        <div className="Employer-Canidate">
+        <div className="Employer-Candidate">
             <div className="img1">
                 <div>
                     <h1>Employer</h1>
@@ -12,7 +12,7 @@ function EmployerCanidate() {
             </div>
             <div className="img2">
                 <div>
-                    <h1>Canidate</h1>
+                    <h1>Candidate</h1>
                     <h4>Start posting your resume</h4>
                     <button className="styledButton">Signup</button>
                 </div>
@@ -21,4 +21,4 @@ function EmployerCanidate() {
     );
 }
 
-export default EmployerCanidate;
+export default EmployerCandidate;
