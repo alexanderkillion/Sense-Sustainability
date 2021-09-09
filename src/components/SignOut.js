@@ -5,7 +5,7 @@ function SignOut() {
     const firebase = React.useContext(FirebaseContext);
 
     return (
-        <button type="button" onClick={firebase.signOut}>
+        <button type="button" className='styledButton' onClick={firebase.signOut}>
             Sign Out
         </button>
     )

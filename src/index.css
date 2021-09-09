@@ -21,18 +21,56 @@ code {
 
 }
 
-/* .Navbar:hover {
-  background-color: green;
-} */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #ddd;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 li {
   list-style-type: none;
   margin: auto;
 }
-
-/* li a:hover {
-  background-color: black;
-} */
 
 a {
   text-decoration: none;
@@ -40,11 +78,91 @@ a {
 }
 
 .Landing {
-  background-image: url("https://cariera.co/wp-content/uploads/2020/05/team-work.jpg");
-  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cariera.co/wp-content/uploads/2020/05/team-work.jpg");
+  height: 45vh;
   margin: auto;
+  background-position: center;
+  background-blend-mode: darken;
+  /* filter: brightness(50%) */
+  padding: 20vh 0 0 15vw;
 }
 
+/* .darkenImage {
+  margin: 20vh 0 0 30vw;
+} */
+
 .LandingForm {
+  /* background-color: white; */
+  width: 70vw;
+}
+
+.white-font {
+  color: white;
+}
+
+.hero-inputs {
+  height: 36px;
+  width: 20vw;
+  border: none;
+  border-right: 1px black solid;
+  padding: 0;
+
+}
+select {
+  height: 36px;
+  width: 20vw;
+  border: none;
+
+}
+
+.underLine {
+  text-decoration: underline;
+}
+
+.styledButton {
+  background-color: blue;
+  color: white;
+  border: none;
+  width: 9.8vw;
+  height: 36px;
+  padding: 0;
+}
+
+.styledButton:hover {
+  background-color: rgb(61, 61, 253);
+}
+
+.img1 {
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 0, 0.5)), url("https://cariera.co/wp-content/uploads/2020/05/team-work.jpg");
+  height: 45vh;
+  width: 50vw;
   margin: auto;
+  background-position: center;
+  background-blend-mode: darken;
+  text-align: center;
+  color: white;
+  display: grid;
+  place-items: center;
+  /* filter: brightness(50%) */
+  /* padding: 5vw 0 0 5vw; */
+}
+
+.img2 {
+  background-image: linear-gradient(rgb(0, 0, 255, 0.5), rgba(0, 0, 0, 0.5)), url("https://cariera.co/wp-content/uploads/2020/05/appearance.jpg");
+  height: 45vh;
+  width: 50vw;
+  margin: auto;
+  background-position: center;
+  background-blend-mode: darken;
+  text-align: center;
+  color: white;
+  display: grid;
+  place-items: center;
+  /* margin: auto; */
+  /* filter: brightness(50%) */
+  /* padding: 10vw 0 0 15vw; */
+}
+
+.Employer-Candidate {
+  display: flex;
 }

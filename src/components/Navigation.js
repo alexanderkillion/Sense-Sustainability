@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
 import * as ROLES from '../constants/roles'
@@ -7,24 +7,48 @@ import { useAuthUser } from './Session'
 
 
 function NavigationAuth({ authUser }) {
+
+    const [toggle, setToggle] = useState(false)
+
+
     return (
         <>
             <ul className='Navbar'>
                 <li>
                     <Link to={ROUTES.RESEARCHNEEDS}>ResearchNeeds.org</Link>
                 </li>
-                <li>Search Opportunities</li>
-                <li>About Us</li>
                 <li>
-                    <Link to={ROUTES.SIGN_UP}>Create An Account</Link>
+                    <Link to={ROUTES.HOME}>Search Opportunities</Link>
+                </li>
+                <li className='dropdown'>
+                    <button className="dropbtn">About Us &#8964;<i className="fa fa-caret-down"></i></button>
+                    <div className="dropdown-content">
+                        <a href=''>FAQ</a>
+                        <a href=''>Contact Us</a>
+                    </div>
                 </li>
                 <li>
-                    <Link to={ROUTES.LOGIN}>Login</Link>
+                    {
+                    !!authUser ? 
+                    <Link to={ROUTES.LOGIN}>Create An Account / Login</Link>
+                 :
+                <SignOut/>
+                    }
                 </li>
-                <li>icon</li>
+                {
+                    !!authUser.roles.includes(ROLES.administrator) && (
+                        <li>
+                            <Link to={ROUTES.ADMIN}>Admin</Link>
+                        </li>
+                    )
+                }
+                <li> {authUser.rolles ? 
+                    <Link to={ROUTES.ACCOUNT}>&#128100;</Link> : <SignOut></SignOut>
+                }
+                </li>
             </ul>
             <ul>
-                <li>
+                {/* <li>
                     <Link to={ROUTES.HOME}>Search Opportunities</Link>
                 </li>
                 <li>
@@ -36,9 +60,9 @@ function NavigationAuth({ authUser }) {
                             <Link to={ROUTES.ADMIN}>Admin</Link>
                         </li>
                     )
-                }
+                } */}
                 <li>
-                    <SignOut />
+                    {/* <SignOut /> */}
                 </li>
             </ul>
         </>
@@ -51,19 +75,24 @@ const NavigationNonAuth = () => (
             <li>
                 <Link to={ROUTES.RESEARCHNEEDS}>ResearchNeeds.org</Link>
             </li>
-            <li>Search Opportunities</li>
-            <li>About Us</li>
             <li>
-                    <Link to={ROUTES.SIGN_UP}>Create An Account</Link>
+                <Link to={ROUTES.HOME}>Search Opportunities</Link>
             </li>
+            <li className='dropdown'>
+                    <button className="dropbtn">About Us &#8964;<i className="fa fa-caret-down"></i></button>
+                    <div className="dropdown-content">
+                        <a href=''>FAQ</a>
+                        <a href=''>Contact Us</a>
+                    </div>
+                </li>
             <li>
-                <Link to={ROUTES.LOGIN}>Login</Link>
+                <Link to={ROUTES.LOGIN}>Create/ Login</Link>
             </li>
-            <li>icon</li>
+            <li><Link to={ROUTES.SIGN_UP}>&#128100;</Link></li>
         </ul>
         <ul>
             <li>
-                <SignOut/>
+                {/* <SignOut/> */}
             </li>
         </ul>
     </>
