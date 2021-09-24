@@ -23,6 +23,7 @@ function NavigationAuth({ authUser }) {
                 <li className='dropdown'>
                     <button className="dropbtn">About Us &#8964;<i className="fa fa-caret-down"></i></button>
                     <div className="dropdown-content">
+                        <a href=''>About</a>
                         <a href=''>FAQ</a>
                         <a href=''>Contact Us</a>
                     </div>
@@ -81,12 +82,13 @@ const NavigationNonAuth = () => (
             <li className='dropdown'>
                     <button className="dropbtn">About Us &#8964;<i className="fa fa-caret-down"></i></button>
                     <div className="dropdown-content">
-                        <a href=''>FAQ</a>
-                        <a href=''>Contact Us</a>
+                        <a href='/about'>About</a>
+                        <a href='/faq'>FAQ</a>
+                        <a href='/contact'>Contact Us</a>
                     </div>
                 </li>
             <li>
-                <Link to={ROUTES.LOGIN}>Create/ Login</Link>
+                <Link to={ROUTES.LOGIN}>Create / Login</Link>
             </li>
             <li><Link to={ROUTES.SIGN_UP}>&#128100;</Link></li>
         </ul>

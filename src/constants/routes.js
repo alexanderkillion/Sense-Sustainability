@@ -6,3 +6,6 @@ export const ACCOUNT = '/account';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
 export const PASSWORD_FORGET = '/pw-forget';
+export const ABOUT = '/about'
+export const FAQ = '/faq'
+export const CONTACT = '/contact'

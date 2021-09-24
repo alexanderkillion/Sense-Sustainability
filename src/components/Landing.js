@@ -1,5 +1,6 @@
 import React from 'react';
 
+import StartNowSection from './StartNowSection';
 import EmployerCandidate from './Employer-Candidate'
 import JobSection from './JobSection';
 import ReviewSection from './ReviewSection';
@@ -60,6 +61,7 @@ function Landing() {
                 <a href='' className='white-font underLine'>Advanced Search</a>
                 </div>
             </div>
+            <StartNowSection />
             <EmployerCandidate />
             <JobSection />
             <ReviewSection  />
