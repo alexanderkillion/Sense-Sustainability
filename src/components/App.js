@@ -9,14 +9,19 @@ import PasswordForget from './PasswordForget'
 import Home from './Home'
 import Account from './Account'
 import Admin from './Admin'
+import About from './About'
+import FAQ from './FAQ'
+import Contact from './Contact'
 import * as ROUTES from '../constants/routes'
+import Footer from './Footer'
 
 function App() {
     return (
         <Router>
-            <div>
+            <>
                 <Navigation />
 
+                <main>
                 <Route exact path={ROUTES.RESEARCHNEEDS} component={Landing} />
                 <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                 <Route path={ROUTES.LOGIN} component={SignInPage} />
@@ -27,7 +32,12 @@ function App() {
                 <Route path={ROUTES.HOME} component={Home} />
                 <Route path={ROUTES.ACCOUNT} component={Account} />
                 <Route path={ROUTES.ADMIN} component={Admin} />
-            </div>
+                <Route path={ROUTES.ABOUT} component={About} />
+                <Route path={ROUTES.CONTACT} component={Contact} />
+                <Route path={ROUTES.FAQ} component={FAQ} />
+                </main>
+                <Footer />
+            </>
         </Router>
     )
 }
