@@ -2,19 +2,32 @@ import React from 'react'
 import styled from 'styled-components'
 
 const FooterSection = styled.footer`
-    height: 15vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    height: 8vh;
+    display: flex;
     padding: 16px;
     align-items: center;
     background-color: black;
     color: gray;
+
+    @media (max-width: 700px){
+        max-width: 100%;
+        font-size: 1rem;
+        align-content: center;
+    } 
 `
+const FooterContent = styled.h6`
+    width: fit-content;
+    margin-left: 15rem;
+
+    @media (max-width: 700px){
+        width: 200px;
+    }
+`;
 
 function Footer() {
     return (
         <FooterSection>
-            <h6>Copyright © Research Needs</h6>
+            <FooterContent>Copyright © Research Needs</FooterContent>
         </FooterSection>
     )
 }
