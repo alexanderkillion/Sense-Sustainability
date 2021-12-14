@@ -14,7 +14,7 @@ class Firebase {
 
     this.db = app.database();
     this.auth = app.auth();
-    this.roles = {};
+    this.roles = '';
     // this.userAxios = axios.create();
  
   }
