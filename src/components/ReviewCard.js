@@ -9,6 +9,7 @@ const Review = styled.div`
     border-radius: 5%;
     background-color: white;
     margin: 16px;
+    padding: 16px;
 
     @media(min-width: 600px){
         width: 350px;
@@ -30,6 +31,11 @@ const Author = styled.div`
     padding: 8px;
 `
 
+const SwitchCard = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 function ReviewCard(props) {
     
     const {description, name, location, imgUrl} = props.reviewInfo
@@ -46,6 +52,11 @@ function ReviewCard(props) {
                     <span>{name}</span>
                     <sub>{location}</sub>
                 </Author>
+                <SwitchCard>
+                    <span>
+                        {props.cardSort}
+                    </span>
+                </SwitchCard>
             </Content>
         </Review>
     )

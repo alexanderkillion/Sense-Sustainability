@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReviewCard from './ReviewCard'
 
@@ -36,9 +36,17 @@ const data = [
 ]
 
 function ReviewSection() {
+    const [reviewCardNum, setReviewCardNum] = useState(0)
+    const cardSort = data.map( info => {
+        if(data.indexOf(info) === reviewCardNum){
+            return <input type="radio" value={data.indexOf(info)} name="reviewCardNum" onClick={() => setReviewCardNum(data.indexOf(info))} checked/>
+        } else {
+            return <input type="radio" value={data.indexOf(info)} name="reviewCardNum" onClick={() => setReviewCardNum(data.indexOf(info))}/>
+        }
+    })
     return (
         <Section>
-            <ReviewCard reviewInfo={data[0]}/>
+            <ReviewCard reviewInfo={data[reviewCardNum]} cardSort={cardSort}/>
         </Section>
     )
 }
